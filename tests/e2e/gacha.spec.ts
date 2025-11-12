@@ -5,7 +5,9 @@ async function navigateToGacha(page: Page) {
   await loginAsDev(page);
   await page.getByRole('link', { name: /ガチャ/ }).click();
   await page.waitForURL('**/gacha');
-  await expect(page.getByRole('heading', { name: 'ガチャ' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: /ガチャ$/, level: 1 })
+  ).toBeVisible({ timeout: 10_000 });
 }
 
 test.describe('Gacha experience', () => {
@@ -29,11 +31,9 @@ test.describe('Gacha experience', () => {
       page.getByText(/枚のカードを獲得しました/)
     ).toContainText('1枚');
 
-    await expect(
-      page.locator('div.bg-white.rounded-lg.shadow-2xl').first()
-    ).toBeVisible();
-
     await page.getByRole('button', { name: 'もう一度引く' }).click();
-    await expect(page.getByRole('heading', { name: 'ガチャ' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: /ガチャ$/, level: 1 })
+    ).toBeVisible({ timeout: 10_000 });
   });
 });

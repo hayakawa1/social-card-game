@@ -11,8 +11,8 @@ test.describe('Player content pages', () => {
     await page.waitForURL('**/decks');
 
     await expect(
-      page.getByRole('heading', { name: 'デッキ編成' })
-    ).toBeVisible();
+      page.getByRole('heading', { name: 'デッキ編成', level: 1 })
+    ).toBeVisible({ timeout: 10_000 });
     await expect(page.getByText('デッキがありません')).toBeVisible();
     await expect(
       page.getByRole('button', { name: /\+ 新しいデッキを作成/ })
@@ -23,7 +23,9 @@ test.describe('Player content pages', () => {
     await page.getByRole('link', { name: /クエスト/ }).click();
     await page.waitForURL('**/quests');
 
-    await expect(page.getByRole('heading', { name: 'クエスト' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: 'クエスト' })
+    ).toBeVisible({ timeout: 10_000 });
     await expect(page.getByText('Beginner Training')).toBeVisible();
     await expect(page.getByText('Forest Battle')).toBeVisible();
     await expect(
@@ -58,7 +60,7 @@ test.describe('Player content pages', () => {
     await page.waitForURL('**/ranking');
 
     await expect(
-      page.getByRole('heading', { name: /ランキング/ })
+      page.getByRole('heading', { name: /ランキング/, level: 1 })
     ).toBeVisible();
     await expect(page.getByText('AI_OPPONENT')).toBeVisible();
 

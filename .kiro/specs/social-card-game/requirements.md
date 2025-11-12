@@ -4,11 +4,26 @@
 
 本文書は、PC向けソーシャルカードゲームの要件を定義します。プレイヤーはカードを収集し、デッキを構築し、他のプレイヤーと対戦します。ゲームはガチャシステム、スタミナ管理、フレンドシステムなど、一般的なソーシャルゲームの要素を含みます。
 
+**実装状況（2024年12月時点）:**
+- ✅ 認証システム（NextAuth.js v5）
+- ✅ プレイヤー管理（プロフィール、通貨、スタミナ、デイリーログイン）
+- ✅ カードシステム（マスターデータ、コレクション、強化）
+- ✅ デッキ管理（CRUD、バリデーション）
+- ✅ ガチャシステム（単発・10連、確率抽選、履歴）
+- ✅ クエストシステム（開始、完了、報酬配布）
+- ✅ フレンドシステム（申請、承認、削除、検索）
+- ✅ ランキングシステム（レベル、パワー、勝利数、勝率）
+- ⏳ バトルシステム（未実装）
+- ⏳ Web通知システム（未実装）
+- ⏳ フロントエンドUI（基本構造のみ）
+
 **技術スタック:**
-- Next.js 16 + React 19 + TypeScript
-- Drizzle ORM + SQLite (開発) / PostgreSQL (本番)
-- NextAuth.js v5 + bcryptjs
-- Tailwind CSS + shadcn/ui + Framer Motion
+- Next.js 16.0.0 + React 19.0.0 + TypeScript 5.7.2
+- Drizzle ORM 0.36.4 + SQLite (better-sqlite3)
+- NextAuth.js v5.0.0-beta.25 + bcryptjs
+- Tailwind CSS 3.4.15 + shadcn/ui + Framer Motion 11.15.0
+- Zustand 5.0.2 + SWR 2.2.5
+- Playwright 1.56.1 (E2Eテスト)
 
 ## 用語集
 

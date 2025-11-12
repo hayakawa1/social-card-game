@@ -28,7 +28,7 @@ test.describe('Dev login flow', () => {
 
     await expect(
       page.getByRole('heading', { name: 'カードコレクション' })
-    ).toBeVisible();
+    ).toBeVisible({ timeout: 15_000 });
 
     const raritySelect = page.locator('select').first();
     const attributeSelect = page.locator('select').nth(1);

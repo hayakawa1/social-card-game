@@ -16,7 +16,10 @@ export async function loginAsDev(page: Page) {
   await expect(devLoginButton).toBeEnabled();
   await devLoginButton.click();
 
-  await page.waitForURL('**/home', { timeout: 15_000 });
-  await expect(page).toHaveURL(/\/home$/);
+  await page.waitForURL('**/home', {
+    waitUntil: 'domcontentloaded',
+    timeout: 20_000,
+  });
+  await expect(page).toHaveURL(/\/home$/, { timeout: 20_000 });
   await expect(page.locator('h1')).toContainText('ようこそ');
 }

@@ -1,0 +1,22 @@
+# サウンドファイルをここに配置してください
+
+## 推奨ディレクトリ構造
+
+```
+sounds/
+  bgm/
+    main-menu.mp3
+    battle.mp3
+    gacha.mp3
+  se/
+    button-click.mp3
+    button-cancel.mp3
+    card-flip.mp3
+    gacha-pull.mp3
+    win.mp3
+    lose.mp3
+    damage-small.mp3
+    damage-large.mp3
+```
+
+詳細は GAME_JUICE_GUIDE.md を参照してください。
